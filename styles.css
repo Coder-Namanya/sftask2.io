@@ -230,10 +230,12 @@ main {
 
 .option.correct {
     background-color: lightgreen; /* Green for correct answer */
+    color:#000000;
 }
 
 .option.wrong {
     background-color: lightcoral; /* Red for wrong answer */
+    color:#000000;
 }
 
 
