@@ -1,0 +1,265 @@
+/* Reset default margin and padding */
+* {
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 20px;
+}
+
+/* Body styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color:#3F72AF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Header styles */
+header {
+    background-color: #112D4E;
+    color: #fff;
+    text-align: center;
+    width: 55%;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+/* Main container */
+main {
+    width: 80%;
+    max-width: 800px;
+    background-color: #112D4E;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+/* Quiz section styles */
+/* General styles for the quiz container */
+#quiz {
+    position: relative;
+    background-image: linear-gradient(to right,#aca8d8,#dc95e3);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Ensures the border animation stays within the container */
+    border: 10px solid black; /* Initial border style */
+    animation: pulseBorder 2s ease-in-out infinite alternate; /* Animation settings */
+}
+
+
+/* Additional Effects */
+#quiz:hover {
+    transform: scale(1.01); /* Scale up on hover */
+    background-image: linear-gradient(to right,#dc95e3,#aca8d8);
+    transition: transform 0.3s ease; /* Smooth scaling transition */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Hover shadow */
+}
+
+
+
+/* Position the score display */
+#score-display {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #409524;
+    padding: 10px;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 1em;
+    width: 130%;
+    margin-bottom: 10px; /* Space below the score display */
+}
+
+/* Styles for current and high scores */
+#current-score, #high-score {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+/* Styles for the stopwatch timer */
+#timer {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #e6e600;
+    color: #000000;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Ensure other elements don't overlap with the score display */
+#options, #next-btn, #skip-btn {
+    margin-top: 20px; /* Add enough space from the top */
+    width: 100%;
+}
+
+.option {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    color: white;
+    background-color: #000000;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.option:hover {
+    background-color: #3a3535;
+}
+
+
+/* Timer styles */
+#time-left {
+    margin-top: -10px;
+    font-size: 1rem;
+    color: #777;
+}
+
+/* Button styles */
+#next-btn,
+#restart-btn {
+    margin-top: 20px;
+    padding: 12px 24px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+#next-btn:disabled,
+#restart-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#next-btn:hover,
+#restart-btn:hover {
+    background-color: #409524;
+}
+
+/* Result section styles */
+#result {
+    display: none;
+    text-align: center;
+    margin-top: 0px;
+    padding-right: 30px;
+    padding-left: 30px;
+    background-color: #4b4b4b;
+}
+
+#final-score {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+    background-color: #4b4b4b;
+}
+
+#answer-review {
+    margin-bottom: 20px;
+    text-align: left;
+    width: 100%;
+}
+
+/* CSS for answer review items */
+.answer-review-item {
+    padding: 12px;
+    border-radius: 20px;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.answer-review-item.correct {
+    background-color: rgb(110, 233, 148);
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgb(0, 255, 26);
+    color:rgb(0, 0, 0);
+    box-shadow: 5px 5px 25px rgb(0, 0, 0);
+}
+
+.answer-review-item.wrong {
+    background-color: rgb(238, 119, 119);
+    border-style: solid;
+    border-width: 3px;
+    border-color: red;
+    color:rgb(0, 0, 0);
+    box-shadow: 5px 5px 25px rgb(0, 0, 0);
+}
+
+.answer-review-item.wrong:hover{
+    transform: scale(1.02);
+    background-color: rgb(241, 151, 151);
+}
+
+.answer-review-item.correct:hover{
+    background-color: rgb(159, 234, 182);
+    transform: scale(1.02);
+}
+
+.answer-review-item.skipped {
+    background-color: rgb(79, 186, 222);
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgb(0, 213, 255);
+    color:rgb(0, 0, 0);
+    box-shadow: 5px 5px 25px rgb(0, 0, 0);
+}
+
+.answer-review-item.skipped:hover{
+    background-color: rgb(159, 219, 234);
+    transform: scale(1.02);
+}
+
+.option.correct {
+    background-color: lightgreen; /* Green for correct answer */
+}
+
+.option.wrong {
+    background-color: lightcoral; /* Red for wrong answer */
+}
+
+
+/* Styling for high score and current score */
+/* Updated CSS for score display */
+#score-display {
+    position: relative;
+    background-color: #DBE2EF;
+    display: flex;
+    width: 35%; /* Adjust width as needed */
+    color: #000000;
+    font-size: 0.9em;
+    justify-content: center;
+    padding: 0px;
+    vertical-align: top;
+    -moz-box-align: end;
+}
+
+#current-score, #high-score {
+    color: #000000; /* White color for text */ 
+    padding: 0% 0%;
+}
+
+/* styling for question number */
+#question-number {
+    font-size: 1.6em;
+    margin-bottom: 10px;
+}
+
